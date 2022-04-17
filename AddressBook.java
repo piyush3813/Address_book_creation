@@ -1,37 +1,46 @@
 package com.bridgelabz;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
-
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class AddressBook {
-    static Logger logger = Logger.getLogger(AddressBook.class);
-    static Scanner sc = new Scanner(System.in);
-    public static void main (String [] args) {
-        BasicConfigurator.configure();
-        logger.info("Welcome to Address Book ");
+    private ArrayList<Contact> friends; // An array of Contacts - each stores info for one friend
 
-        while (true) {
+    // Create an empty AddressBook
+    public AddressBook() {
+        friends = new ArrayList<Contact>();
+    }
 
-            logger.info("1.press 1 for creating new contact");
-            logger.info("2.to exit press 2");
-            logger.info("press option");
-            int option = sc.nextInt();
+    // Add a contact that's passed in as a parameter.
+    public void addContact(Contact c) {
+        friends.add(c);
+    }
 
-            switch (option) {
-                case 1: {
-                    logger.info("you have selected the option for creation");
-                    break;
-                }
-                case 2: {
-                    logger.info("you have selected to exit");
-                    System.exit(0);
-                }
-                default:
-                    logger.info("please select right choice ");
+    // Print out info on all contacts using method Contact class.
+    public void printContacts() {
+        for (int i=0;i<friends.size();i++)
+            System.out.println(friends.get(i));
+    }
 
-            }
-        }
+    // Returns the number of friends currently in AddressBook
+    public int numContacts() {
+        return friends.size();
+    }
+
+    // Returns a non-neg integer if a Contact with name s exists corresponding
+    // to which place in the array friends the Contact is stored. Returns -1
+    // otherwise.
+    private int haveContact(String s) {
+        for (int i=0;i<friends.size();i++)
+            if (friends.get(i).getName().equals(s))
+                return i;
+        return -1;
+    }
+
+    // Deletes a contact with name s, if one is in the AddressBook.
+    public void deleteContact(String s) {
+        int place = haveContact(s);
+        if (place >= 0)
+            friends.remove(place);
     }
 }
+
