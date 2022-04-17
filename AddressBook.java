@@ -42,5 +42,6 @@ public class AddressBook {
         if (place >= 0)
             friends.remove(place);
     }
+
 }
 

@@ -2,7 +2,7 @@ package com.bridgelabz;
 
 public class Contact {
     private String name; // Stores name of Contact
-    private String email; // stors email
+    private String email; // stores email
     private int age;  // Stores age of Contact
     private long phonenumber; // Stores phone number of contact
     private int bday;  // Stores birthday in an int
@@ -23,7 +23,7 @@ public class Contact {
 
     // Implements the passing of Contact's birthday.
     public void Birthday() {
-        age++;
+         age++;
     }
 
     // Returns the email of a Contact
@@ -48,8 +48,8 @@ public class Contact {
 
     // Prints all information about a contact out.
     public String toString() {
-        return  "Name: " + name +"E-mail: " + email + " Age: " + age + " Phone#: " + phonenumber +
-                " Birthday: " + getBdayMonth() + "/" + getBdayDay();
+        return  "Name: " + name +" E-mail: " + email + " Age: " + age + " Phone#: " + phonenumber +
+                " Birthday: " + getBdayMonth() + "/" + getBdayDay() ;
     }
 
     // Returns month of Contact's birthday
